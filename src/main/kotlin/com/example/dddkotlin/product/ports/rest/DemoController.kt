@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
  * - O "MasterDataUpdateAvailableEvent" é gerado pelo "Master Data Service".
  * - O "MediaDataUpdateAvailableEvent" é gerado pelo "Media Data Service".
  *
- * Veja o "HELP.md" para uma visão geral do processo de negócios!
+ * Veja o "README.md" para uma visão geral do processo de negócios!
  */
 
 @RestController
@@ -27,6 +27,7 @@ class DemoController(
         // Em nosso exemplo, este evento seria lançado pelo externo
         // "Master Data Service".
        val result = eventBus.send(
+           //OUVIDO PELO LISTENER - MaterDataUpdateAvailableEventListener
             MasterDataUpdateAvailableEvent(
                 productNumber = ProductNumber("P-000001"),
                 name = "Coca-Cola",

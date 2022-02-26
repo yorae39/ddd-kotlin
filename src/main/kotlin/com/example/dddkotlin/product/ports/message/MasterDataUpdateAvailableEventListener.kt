@@ -21,10 +21,8 @@ class MasterDataUpdateAvailableEventListener(
 
         val productExists = productRepository.exists(event.productNumber)
 
-        var result = ""
-
-        if (productExists) {
-           result = commandBus.send(
+        return if (productExists) {
+            commandBus.send(
                 UpdateMasterDataCommand(
                     productNumber = event.productNumber,
                     name = event.name,
@@ -33,7 +31,7 @@ class MasterDataUpdateAvailableEventListener(
             )
 
         } else {
-           result = commandBus.send(
+            commandBus.send(
                 CreateNewProductCommand(
                     productNumber = event.productNumber,
                     name = event.name,
@@ -41,7 +39,5 @@ class MasterDataUpdateAvailableEventListener(
                 )
             )
         }
-
-        return result
     }
 }
