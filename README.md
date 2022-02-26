@@ -1,5 +1,6 @@
 <u> DDD com Kotlin</u>
 =====================
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/bringmeister/ddd-with-kotlin/master/LICENSE)
 
 Projeto de exemplo do conceito DDD - Domain Driven Design com Kotlin
 
