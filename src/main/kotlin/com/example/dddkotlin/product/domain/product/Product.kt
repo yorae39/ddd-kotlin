@@ -9,7 +9,7 @@ import org.springframework.util.Assert
  *
  * Esta entidade encapsula todas as informações que pertencem a um produto.
  * Também fornece métodos de negócios para trabalhar com essas informações. Dados
- * não pode ser alterado de fora - não há setters.
+ * não podem ser alterados de fora - não há setters.
  *
  * Sempre que os dados forem alterados, um evento de domínio será lançado. Este evento
  * informa a qualquer ouvinte que algo mudou no contexto de um produto.
@@ -37,7 +37,7 @@ class Product(
         )
 
         raise(ProductCreatedEvent(productNumber = id))
-        logger().info("New product created. [productNumber={}]", id)
+        logger().info("New product created. [productNumber=$id]")
     }
 
     fun handle(command: UpdateMasterDataCommand) {
@@ -51,7 +51,7 @@ class Product(
         )
 
         raise(MasterDataUpdatedEvent(productNumber = id))
-        logger().info("Product master data updated. [productNumber={}]", id)
+        logger().info("Product master data updated. [productNumber=$id]")
     }
 
     fun handle(command: UpdateMediaDataCommand) {
@@ -59,6 +59,6 @@ class Product(
         this.imageUrl = command.imageUrl
 
         raise(MediaDataUpdatedEvent(productNumber = id))
-        logger().info("Product media data updated. [productNumber={}]", id)
+        logger().info("Product media data updated. [productNumber=$id]")
     }
 }

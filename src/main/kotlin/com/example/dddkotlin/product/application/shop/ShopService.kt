@@ -11,6 +11,6 @@ class ShopService() {
     fun handle(command: UpdateShopCommand) {
         // Aqui seria o lugar para alguma lógica de negócios
         // interagindo com o sistema de loja externo.
-        logger().info("Shop has been updated. [productNumber={}]", command.productNumber)
+        logger().info("Shop has been updated. [productNumber=${command.productNumber}]")
     }
 }

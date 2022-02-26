@@ -24,7 +24,7 @@ class StubbedMediaDataRegistry(
 ): MediaDataRegistry {
 
     override fun handle(command: RegisterForMediaDataUpdatesCommand) {
-        logger().info("Registered for media data updates. [productNumber={}]", command.productNumber)
+        logger().info("Registered for media data updates. [productNumber=${command.productNumber}]")
         // Este evento simula a resposta de outro sistema externo. Depois que
         // um produto foi registrado para atualizações no serviço de dados de mídia,
         // este serviço eventualmente nos enviará uma atualização.

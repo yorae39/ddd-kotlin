@@ -12,6 +12,6 @@ class ImageCdnService() {
         /* Aqui seria o lugar para alguma lógica de negócios
            interagindo com a imagem externa CDN.
          */
-        logger().info("Image CDN has been updated. [productNumber={}]", command.productNumber)
+        logger().info("Image CDN has been updated. [productNumber=${ command.productNumber}]")
     }
 }

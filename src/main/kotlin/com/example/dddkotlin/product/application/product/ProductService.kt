@@ -38,14 +38,14 @@ class ProductService() {
     fun handle(command: UpdateMediaDataCommand) {
         if(productRepository.exists(command.productNumber)){
             val product = productRepository.find(command.productNumber)
-            logger().info("Image of product before actualization : ${product.imageUrl}")
+            logger().trace("Image of product before actualization : ${product.imageUrl}")
             product.handle(command)
-            logger().info("Image of product after actualization : ${product.imageUrl}")
+            logger().trace("Image of product after actualization : ${product.imageUrl}")
             productRepository.save(product)
             val events = product.occurredEvents()
             eventBus.sendAll(events)
         } else {
-            logger().info("Media data ignored as product doesn't exist. [productNumber={}]", command.productNumber)
+            logger().info("Media data ignored as product doesn't exist. [productNumber=$command.productNumber]")
         }
     }
 }

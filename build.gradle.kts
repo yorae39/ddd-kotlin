@@ -22,6 +22,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation("org.apache.commons:commons-lang3:3.12.0")
+    // https://mvnrepository.com/artifact/log4j/log4j
+    implementation("log4j:log4j:1.2.17")
+
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

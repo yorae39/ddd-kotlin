@@ -10,7 +10,8 @@ class SpringEventBus(
     private val eventPublisher: ApplicationEventPublisher
 ): EventBus {
 
-    override fun send(event: Event) {
+    override fun send(event: Event): String {
         eventPublisher.publishEvent(event)
+        return event.toString()
     }
 }

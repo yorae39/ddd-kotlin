@@ -1,10 +1,9 @@
 package com.example.dddkotlin.product.application
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.apache.log4j.Logger
 import kotlin.reflect.full.companionObject
 
-private fun getLogger(forClass: Class<*>): Logger = LoggerFactory.getLogger(forClass)
+private fun getLogger(forClass: Class<*>): Logger = Logger.getLogger(forClass)
 
 private fun <T : Any> getClassForLogging(javaClass: Class<T>): Class<*> {
     return javaClass.enclosingClass?.takeIf {

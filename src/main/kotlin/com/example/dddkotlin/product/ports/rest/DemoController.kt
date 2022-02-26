@@ -2,7 +2,7 @@ package com.example.dddkotlin.product.ports.rest
 
 import com.example.dddkotlin.product.domain.EventBus
 import com.example.dddkotlin.product.domain.product.ProductNumber
-import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -22,30 +22,33 @@ class DemoController(
 ) {
 
     @PostMapping("/master_data_update")
-    fun masterDataUpdate() {
+    fun masterDataUpdate(): ResponseEntity<String> {
         // Simula um evento de entrada de outro sistema externo.
         // Em nosso exemplo, este evento seria lançado pelo externo
         // "Master Data Service".
-        eventBus.send(
+       val result = eventBus.send(
             MasterDataUpdateAvailableEvent(
                 productNumber = ProductNumber("P-000001"),
                 name = "Coca-Cola",
                 description = "A bottle of tasty Coca Cola"
             )
         )
+        return ResponseEntity.ok(result)
     }
 
     @PostMapping("/media_data_update")
-    fun mediaDataUpdate(@RequestBody imageUrl: String) {
+    fun mediaDataUpdate(@RequestBody imageUrl: String): ResponseEntity<String> {
         // Simula um evento de entrada de outro sistema externo.
         // Em nosso exemplo, este evento seria lançado pelo externo
         // "Media Data Service".
-        eventBus.send(
+       val result = eventBus.send(
+           //OUVIDO PELO LISTENER - MediaDataUpdateAvailableEventListener
             MediaDataUpdateAvailableEvent(
                 productNumber = ProductNumber("P-000001"),
                 imageUrl = imageUrl
             )
         )
+        return ResponseEntity.ok(result)
     }
 
 }

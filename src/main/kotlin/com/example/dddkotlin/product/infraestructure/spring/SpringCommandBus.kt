@@ -10,7 +10,8 @@ class SpringCommandBus(
     private val eventPublisher: ApplicationEventPublisher
 ): CommandBus {
 
-    override fun send(command: Command) {
+    override fun send(command: Command): String {
        eventPublisher.publishEvent(command)
+        return command.toString()
     }
 }

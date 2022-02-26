@@ -13,6 +13,6 @@ class SearchIndexService() {
             Aqui seria o lugar para alguma lógica de negócios
             interagindo com o índice de pesquisa externo.
          */
-        logger().info("Search index has been updated. [productNumber={}]", command.productNumber)
+        logger().info("Search index has been updated. [productNumber=${command.productNumber}]")
     }
 }
